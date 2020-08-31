@@ -1,3 +1,28 @@
+
+vue-cli4兼容ie9配置
+
+第一步，我们安装兼容依赖
+
+cnpm install babel-polyfill --save
+ cnpm install es6-promise --save
+ 
+
+第二步，我们在main.js 添加一段代码 【这里是兼容es6的】
+
+import promise from 'es6-promise' 
+promise.polyfill() // 兼容 Promise
+第三步，在项目目录下的 【vue.config.js】里面配置另一个兼容处理，初始化的时候就不会报错
+
+module.exports = {
+    configureWebpack: config => {
+        config.entry.app = ["babel-polyfill", "./src/main.js"];
+    }
+}
+这样子就完成兼容了。
+---------------------------------------------------------------
+链接：https://www.cnblog.co/web/2020-04-16/387.html
+
+
 VUE组件汇总
 网址：https://juejin.im/post/5af16a2cf265da0b8636353b
 
